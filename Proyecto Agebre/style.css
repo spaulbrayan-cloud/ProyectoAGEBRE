@@ -1,0 +1,462 @@
+/* Variables para colores */
+:root {
+    --primary-color: #8B0000; /* Rojo oscuro (no tan fuerte) */
+    --secondary-color: #A52A2A; /* Rojo café para contraste */
+    --text-color: #1a1a1a; /* Negro casi puro */
+    --light-gray: #f4f4f4;
+    --dark-gray: #444;
+}
+
+/* Reset básico y tipografía */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: var(--text-color);
+    line-height: 1.6;
+    background-color: #fff;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    color: var(--primary-color);
+}
+
+/* ------------------- CABECERA ------------------- */
+header {
+    background-color: #fff;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.logo h1 {
+    font-size: 1.8em;
+    color: var(--primary-color);
+}
+
+.logo p {
+    font-size: 0.8em;
+    color: var(--dark-gray);
+    margin-top: -5px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 700;
+    padding: 10px 15px;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: var(--primary-color);
+}
+
+.login-btn {
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.login-btn:hover {
+    background-color: var(--secondary-color);
+}
+
+/* ------------------- SECCIONES PRINCIPALES ------------------- */
+main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+section {
+    padding: 60px 0;
+}
+
+.hero {
+    background-color: var(--primary-color);
+    color: #fff;
+    text-align: center;
+    padding: 80px 20px;
+    margin-bottom: 40px;
+}
+
+.hero h2 {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 1.2em;
+}
+
+.news-section {
+    background-color: var(--light-gray);
+    border-radius: 8px;
+}
+
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.news-item {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.news-item:hover {
+    transform: translateY(-5px);
+}
+
+.news-image {
+    width: 100%;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+}
+
+.news-item h3 {
+    padding: 15px;
+    color: var(--primary-color);
+}
+
+.news-item p {
+    padding: 0 15px;
+    color: var(--dark-gray);
+}
+
+.read-more {
+    display: inline-block;
+    padding: 15px;
+    text-decoration: none;
+    color: var(--secondary-color);
+    font-weight: 700;
+}
+
+.about-us, .cta-repo {
+    text-align: center;
+}
+
+.about-us p {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.1em;
+    color: var(--dark-gray);
+}
+
+.cta-btn {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: #fff;
+    text-decoration: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-weight: 700;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+.cta-btn:hover {
+    background-color: var(--secondary-color);
+}
+
+/* ------------------- PIE DE PÁGINA ------------------- */
+footer {
+    background-color: var(--text-color);
+    color: #fff;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.footer-info, .footer-social {
+    margin-bottom: 20px;
+}
+
+.footer-info h3, .footer-social h3 {
+    margin-bottom: 10px;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    margin-top: 20px;
+    padding-top: 20px;
+}
+
+/* ------------------- SECCIÓN DE REPOSITORIO ------------------- */
+.repository-section {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.search-bar-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.search-bar-container input {
+    width: 60%;
+    max-width: 500px;
+    padding: 12px 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px 0 0 5px;
+    font-size: 1em;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.search-bar-container input:focus {
+    border-color: var(--primary-color);
+}
+
+.search-bar-container button {
+    padding: 12px 20px;
+    border: 1px solid var(--primary-color);
+    background-color: var(--primary-color);
+    color: #fff;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.search-bar-container button:hover {
+    background-color: var(--secondary-color);
+}
+
+.repo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.document-item {
+    background-color: #fff;
+    border: 1px solid #eee;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.document-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.doc-icon {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    color: var(--secondary-color);
+}
+
+.document-item h3 {
+    color: var(--text-color);
+    font-size: 1.4em;
+    margin-bottom: 8px;
+}
+
+.document-item p {
+    color: var(--dark-gray);
+    margin-bottom: 20px;
+}
+
+.download-btn {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: 700;
+    transition: background-color 0.3s;
+}
+
+.download-btn:hover {
+    background-color: var(--secondary-color);
+}
+
+/* ------------------- SECCIÓN DE LOGIN ------------------- */
+.login-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 120px); /* Ajusta la altura para que el formulario esté centrado verticalmente */
+    padding: 60px 20px;
+}
+
+.login-container {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+}
+
+.form-title {
+    font-size: 2em;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.login-container p {
+    color: var(--dark-gray);
+    margin-bottom: 25px;
+}
+
+.form-group {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9em;
+    margin-bottom: 25px;
+    color: var(--dark-gray);
+}
+
+.form-options a {
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+
+.form-options a:hover {
+    text-decoration: underline;
+}
+
+.form-btn {
+    width: 100%;
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 1.1em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.form-btn:hover {
+    background-color: var(--secondary-color);
+}
+
+.register-link {
+    margin-top: 25px;
+}
+
+.register-link a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}
+
+/* ------------------- SECCIÓN MOPED ------------------- */
+.moped-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 120px);
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.moped-container {
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.moped-description {
+    font-size: 1.2em;
+    color: var(--dark-gray);
+    margin-bottom: 40px;
+}
+
+.moped-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.moped-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    background-color: var(--primary-color);
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: 700;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.moped-btn:hover {
+    transform: translateY(-5px);
+    background-color: var(--secondary-color);
+}

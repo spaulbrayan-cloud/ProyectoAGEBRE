@@ -32,27 +32,41 @@
 
         <section class="news-section">
             <h2 class="section-title">Últimas Noticias y Anuncios</h2>
-            <div class="news-grid">
+            <div class="news-carousel">
                 <article class="news-item">
-                    <div class="news-image" style="background-image: url('https://via.placeholder.com/400x250.png?text=Noticia+1');"></div>
-                    <h3>Título de la Noticia 1</h3>
-                    <p>Breve descripción de la noticia para enganchar al lector...</p>
-                    <a href="#" class="read-more">Leer más</a>
+                    <div class="news-image" style="background-image: url('IMÁGENES/SIMULACRO.jpg');"></div>
+                    <div class="news-content">
+                        <h3>Título de la Noticia 1</h3>
+                        <p>Breve descripción de la noticia para enganchar al lector...</p>
+                        <a href="#" class="read-more" data-image-src="IMÁGENES/SIMULACRO.jpg">Ver imagen</a>
+                    </div>
                 </article>
                 <article class="news-item">
-                    <div class="news-image" style="background-image: url('https://via.placeholder.com/400x250.png?text=Noticia+2');"></div>
-                    <h3>Título de la Noticia 2</h3>
-                    <p>Breve descripción de la noticia para enganchar al lector...</p>
-                    <a href="#" class="read-more">Leer más</a>
+                    <div class="news-image" style="background-image: url('IMÁGENES/TALLER-REDES.jpg');"></div>
+                    <div class="news-content">
+                        <h3>Título de la Noticia 2</h3>
+                        <p>Breve descripción de la noticia para enganchar al lector...</p>
+                        <a href="#" class="read-more" data-image-src="IMÁGENES/TALLER-REDES.jpg">Ver imagen</a>
+                    </div>
                 </article>
                 <article class="news-item">
-                    <div class="news-image" style="background-image: url('https://via.placeholder.com/400x250.png?text=Noticia+3');"></div>
-                    <h3>Título de la Noticia 3</h3>
-                    <p>Breve descripción de la noticia para enganchar al lector...</p>
-                    <a href="#" class="read-more">Leer más</a>
+                    <div class="news-image" style="background-image: url('IMÁGENES/DUA5.jpg');"></div>
+                    <div class="news-content">
+                        <h3>Título de la Noticia 3</h3>
+                        <p>Breve descripción de la noticia para enganchar al lector...</p>
+                        <a href="#" class="read-more" data-image-src="IMÁGENES/DUA5.jpg">Ver imagen</a>
+                    </div>
+                </article>
+                <article class="news-item">
+                    <div class="news-image" style="background-image: url('IMÁGENES/GESTIONDERIESGO.jpg');"></div>
+                    <div class="news-content">
+                        <h3>Título de la Noticia 4</h3>
+                        <p>Breve descripción de la noticia para enganchar al lector...</p>
+                        <a href="#" class="read-more" data-image-src="IMÁGENES/GESTIONDERIESGO.jpg">Ver imagen</a>
+                    </div>
                 </article>
             </div>
-        </section>
+         </section>
 
         <section class="about-us">
             <h2 class="section-title">Acerca de AGEBRE</h2>
@@ -71,7 +85,7 @@
         <div class="footer-content">
             <div class="footer-info">
                 <h3>Contacto</h3>
-                <p>Dirección: Av. El Sol S/N, San Juan de Lurigancho</p>
+                <p>Dirección: Av. Perú S/N, San Juan de Lurigancho</p>
                 <p>Teléfono: (01) 362-0200</p>
                 <p>Email: agebre@ugel05.gob.pe</p>
             </div>
@@ -84,5 +98,61 @@
             <p>&copy; 2025 AGEBRE UGEL 05. Todos los derechos reservados.</p>
         </div>
     </footer>
+
+    <div id="imageModal" class="modal">
+        <span class="close-btn">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <script>// --- SCRIPT PARA LA VENTANA MODAL (LIGHTBOX) ---
+
+        // 1. Obtenemos los elementos que necesitamos del HTML
+        const modal = document.getElementById("imageModal");
+        const modalImg = document.getElementById("modalImage");
+        const closeBtn = document.querySelector(".close-btn");
+
+        // 2. Obtenemos TODOS los enlaces que deben abrir la modal
+        const readMoreLinks = document.querySelectorAll(".read-more");
+
+        // 3. Recorremos cada enlace y le decimos qué hacer cuando le den clic
+        readMoreLinks.forEach(link => {
+        link.addEventListener("click", function(event) {
+            // Prevenimos que el enlace '#' recargue la página
+            event.preventDefault(); 
+    
+            // Obtenemos la ruta de la imagen del atributo 'data-image-src'
+            const imageSrc = this.dataset.imageSrc;
+            
+            // Mostramos la modal y le ponemos la imagen correcta
+            modal.style.display = "flex"; // Usamos flex por el centrado del CSS
+            modalImg.src = imageSrc;
+        });
+        });
+
+        // 4. Función para cerrar la modal
+        function closeModal() {
+        modal.style.display = "none";
+        }
+
+        // 5. Asignamos los eventos para cerrar
+        // Al hacer clic en la 'X'
+        closeBtn.addEventListener("click", closeModal);
+
+        // Al hacer clic FUERA de la imagen (en el fondo oscuro)
+        modal.addEventListener("click", function(event) {
+        if (event.target === modal) {
+            closeModal();
+        }
+        });
+
+        // Opcional: Cerrar con la tecla "Escape"
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
+
 </body>
+
 </html>

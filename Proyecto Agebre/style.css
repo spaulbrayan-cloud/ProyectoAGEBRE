@@ -1,0 +1,615 @@
+/* Variables para colores (Se mantienen tus colores) */
+:root {
+    --primary-color: #8B0000;
+    --secondary-color: #A52A2A;
+    --text-color: #1a1a1a;
+    --light-gray: #f4f4f4;
+    --dark-gray: #444;
+}
+
+/* Reset básico y tipografía */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth; /* Agrega scroll suave */
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: var(--text-color);
+    line-height: 1.6;
+    background-color: #fff;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem; /* Usamos rem para mejor accesibilidad */
+    margin-bottom: 40px;
+    color: var(--primary-color);
+    font-weight: 700; /* Títulos más definidos */
+}
+
+/* ------------------- CABECERA MODERNA ------------------- */
+header {
+    background-color: #ffffff;
+    padding: 15px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e0e0e0; /* Borde más suave */
+    
+    /* --- NUEVO: Header fijo --- */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    transition: box-shadow 0.3s ease;
+}
+
+/* --- NUEVO: Sombra en header al hacer scroll --- */
+/* (Se necesita un poco de JS para activarlo, pero lo dejamos preparado) */
+header.scrolled {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo h1 {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin: 0;
+}
+
+.logo p {
+    font-size: 0.8rem;
+    color: var(--dark-gray);
+    margin-top: -5px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 10px; /* --- NUEVO: Espacio entre elementos del menú --- */
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 700;
+    padding: 10px 15px;
+    position: relative; /* Para el efecto hover */
+    transition: color 0.3s;
+}
+
+/* --- NUEVO: Efecto hover con línea inferior --- */
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--primary-color);
+    transition: width 0.3s ease-out;
+}
+
+nav a:hover {
+    color: var(--primary-color);
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+.login-btn {
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50px; /* --- NUEVO: Botón más redondeado --- */
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.login-btn:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px); /* --- NUEVO: Efecto sutil al pasar el mouse --- */
+}
+
+/* ------------------- SECCIONES PRINCIPALES ------------------- */
+main {
+    max-width: 1200px; /* Un poco más de ancho para pantallas grandes */
+    margin: 0 auto;
+    padding: 20px;
+}
+
+section {
+    padding: 80px 15px; /* Más padding vertical */
+}
+
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('IMÁGENES/alumnos-estudiando.jpg'); /* --- NUEVO: Fondo con imagen (reemplaza por una tuya) y superposición oscura --- */
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    text-align: center;
+    padding: 100px 20px;
+    margin: -20px -20px 40px -20px; /* Ocupa todo el ancho */
+    border-radius: 0 0 15px 15px; /* Bordes redondeados abajo */
+}
+
+.hero h2 {
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 1.3rem;
+    max-width: 700px;
+    margin: 0 auto; /* Centra el texto */
+}
+
+.news-section {
+    padding-top: 40px;
+}
+
+/* --- NUEVO: Estilos para el Carrusel de Noticias --- */
+.news-carousel {
+    display: flex;
+    overflow-x: auto; /* Permite el scroll horizontal */
+    scroll-snap-type: x mandatory; /* Hace que se detenga en cada elemento */
+    gap: 25px;
+    padding: 20px;
+    margin: 0 -20px; /* Para que el scroll se vea bien en los bordes */
+}
+
+/* Estilo de la barra de scroll (opcional pero se ve mejor) */
+.news-carousel::-webkit-scrollbar {
+    height: 8px;
+}
+.news-carousel::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+}
+.news-carousel::-webkit-scrollbar-thumb:hover {
+    background: #aaa;
+}
+
+.news-item {
+    /* --- NUEVO: Configuración de cada tarjeta del carrusel --- */
+    flex: 0 0 320px; /* Cada item tendrá 320px de ancho y no se encogerá */
+    scroll-snap-align: start; /* Alinea cada item al inicio al hacer snap */
+
+    background-color: #fff;
+    border-radius: 12px; /* Bordes más redondeados */
+    overflow: hidden;
+    /* --- NUEVO: Sombra más suave y moderna --- */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.news-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.news-image {
+    width: 100%;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+}
+
+/* --- NUEVO: Contenedor para el texto de la tarjeta --- */
+.news-content {
+    padding: 20px;
+}
+
+.news-content h3 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    font-size: 1.25rem;
+}
+
+.news-content p {
+    color: var(--dark-gray);
+    margin-bottom: 15px;
+}
+
+.read-more {
+    text-decoration: none;
+    color: var(--secondary-color);
+    font-weight: 700;
+    transition: color 0.3s;
+}
+.read-more:hover {
+    color: var(--primary-color);
+}
+
+
+.about-us, .cta-repo {
+    text-align: center;
+}
+
+.about-us p {
+    max-width: 800px;
+    margin: 10px auto;
+    font-size: 1.1rem;
+    color: var(--dark-gray);
+    line-height: 1.8;
+}
+
+.cta-btn {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: #fff;
+    text-decoration: none;
+    padding: 15px 30px;
+    border-radius: 50px; /* Botón redondeado */
+    font-weight: 700;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+}
+
+.cta-btn:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* ------------------- PIE DE PÁGINA ------------------- */
+footer {
+    background-color: var(--text-color);
+    color: #ccc; /* Un gris claro para mejor lectura */
+    padding: 50px 0;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 1100px;
+    margin: 0 auto;
+    gap: 20px;
+}
+
+.footer-info, .footer-social {
+    margin-bottom: 20px;
+}
+
+.footer-info h3, .footer-social h3 {
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.footer-info p {
+    margin: 5px 0;
+}
+
+.footer-social a {
+    color: #ccc;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s;
+}
+.footer-social a:hover {
+    color: #fff;
+}
+
+.footer-bottom {
+    border-top: 1px solid #444; /* Borde más visible */
+    margin-top: 30px;
+    padding-top: 30px;
+    color: #888;
+}
+/* --- ESTILOS PARA LA VENTANA MODAL (LIGHTBOX) --- */
+
+/* El fondo oscuro que cubre toda la pantalla */
+.modal {
+  display: none; /* Oculto por defecto */
+  position: fixed; /* Se queda fijo en la pantalla */
+  z-index: 1001; /* Se asegura de estar por encima de todo */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto; /* Permite scroll si la imagen es muy grande */
+  background-color: rgba(0, 0, 0, 0.85); /* Fondo negro semitransparente */
+  
+  /* Usamos Flexbox para centrar la imagen fácilmente */
+  align-items: center;
+  justify-content: center;
+}
+
+/* La imagen dentro de la modal */
+.modal-content {
+  margin: auto;
+  display: block;
+  max-width: 80%;
+  max-height: 80%;
+  /* Animación para que aparezca con un zoom */
+  animation: zoomIn 0.4s ease-out;
+}
+
+/* El botón para cerrar (la 'X') */
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+  color: #bbb;
+  text-decoration: none;
+}
+
+/* La animación de Zoom */
+@keyframes zoomIn {
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+/* ------------------- SECCIÓN DE REPOSITORIO ------------------- */
+.repository-section {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.search-bar-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.search-bar-container input {
+    width: 60%;
+    max-width: 500px;
+    padding: 12px 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px 0 0 5px;
+    font-size: 1em;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.search-bar-container input:focus {
+    border-color: var(--primary-color);
+}
+
+.search-bar-container button {
+    padding: 12px 20px;
+    border: 1px solid var(--primary-color);
+    background-color: var(--primary-color);
+    color: #fff;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.search-bar-container button:hover {
+    background-color: var(--secondary-color);
+}
+
+.repo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.document-item {
+    background-color: #fff;
+    border: 1px solid #eee;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.document-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.doc-icon {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    color: var(--secondary-color);
+}
+
+.document-item h3 {
+    color: var(--text-color);
+    font-size: 1.4em;
+    margin-bottom: 8px;
+}
+
+.document-item p {
+    color: var(--dark-gray);
+    margin-bottom: 20px;
+}
+
+.download-btn {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: 700;
+    transition: background-color 0.3s;
+}
+
+.download-btn:hover {
+    background-color: var(--secondary-color);
+}
+
+/* ------------------- SECCIÓN DE LOGIN ------------------- */
+.login-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 120px); /* Ajusta la altura para que el formulario esté centrado verticalmente */
+    padding: 60px 20px;
+}
+
+.login-container {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+}
+
+.form-title {
+    font-size: 2em;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.login-container p {
+    color: var(--dark-gray);
+    margin-bottom: 25px;
+}
+
+.form-group {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9em;
+    margin-bottom: 25px;
+    color: var(--dark-gray);
+}
+
+.form-options a {
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+
+.form-options a:hover {
+    text-decoration: underline;
+}
+
+.form-btn {
+    width: 100%;
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 1.1em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.form-btn:hover {
+    background-color: var(--secondary-color);
+}
+
+.register-link {
+    margin-top: 25px;
+}
+
+.register-link a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}
+
+/* ------------------- SECCIÓN MOPED ------------------- */
+.moped-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 120px);
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.moped-container {
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.moped-description {
+    font-size: 1.2em;
+    color: var(--dark-gray);
+    margin-bottom: 40px;
+}
+
+.moped-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.moped-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    background-color: var(--primary-color);
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: 700;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.moped-btn:hover {
+    transform: translateY(-5px);
+    background-color: var(--secondary-color);
+
+}

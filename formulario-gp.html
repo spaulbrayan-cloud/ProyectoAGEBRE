@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Monitoreo - AGEBRE UGEL 05</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="IMÁGENES/lapiz.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>AGEBRE</h1>
+            <p>UGEL 05</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="repositorio.html">Repositorio</a></li>
+                <li><a href="#">Contacto</a></li>
+                <li><a href="moped.html" class="active">Mi MOPED</a></li> 
+            </ul>
+        </nav>
+        <a href="login.html" class="login-btn">Cerrar Sesión</a> </header>
+
+    <main class="form-page">
+        <section class="form-container">
+            <h2 class="section-title">Registro de Ficha de Gestión Pedagógica</h2>
+            <form id="monitoreoForm" class="monitoreo-form">
+                
+                <fieldset>
+                    <legend><i class="fas fa-school"></i> Datos Generales</legend>
+                    <div class="form-group">
+                        <label for="fecha">Fecha del Monitoreo</label>
+                        <input type="date" id="fecha" name="fecha" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="institucion">Institución Educativa</label>
+                        <input type="text" id="institucion" name="institucion" placeholder="Escribe el nombre de la II.EE." required>
+                    </div>
+                    <div class="form-group">
+                        <label for="codigoModular">Código Modular</label>
+                        <input type="text" id="codigoModular" name="codigoModular" placeholder="Ej: 1234567" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="nivelEducativo">Nivel Educativo</label>
+                        <select id="nivelEducativo" name="nivelEducativo" required>
+                            <option value="">Selecciona un nivel</option>
+                            <option value="inicial">Inicial</option>
+                            <option value="primaria">Primaria</option>
+                            <option value="secundaria">Secundaria</option>
+                            <option value="ebr">EBR</option>
+                            <option value="eba">EBA</option>
+                            <option value="eetp">EETP</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="docente">Docente Monitoreado</label>
+                        <input type="text" id="docente" name="docente" placeholder="Nombre completo del docente" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="dniDocente">DNI del Docente</label>
+                        <input type="text" id="dniDocente" name="dniDocente" pattern="[0-9]{8}" placeholder="8 dígitos" required>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend><i class="fas fa-chalkboard-teacher"></i> Aspectos Pedagógicos (Ejemplo)</legend>
+                    <div class="form-group">
+                        <label for="planificacion">Planificación de la Sesión</label>
+                        <select id="planificacion" name="planificacion" required>
+                            <option value="">Evaluar</option>
+                            <option value="destacado">Destacado</option>
+                            <option value="logrado">Logrado</option>
+                            <option value="proceso">En Proceso</option>
+                            <option value="inicio">En Inicio</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="ejecucion">Ejecución de la Sesión</label>
+                        <select id="ejecucion" name="ejecucion" required>
+                            <option value="">Evaluar</option>
+                            <option value="destacado">Destacado</option>
+                            <option value="logrado">Logrado</option>
+                            <option value="proceso">En Proceso</option>
+                            <option value="inicio">En Inicio</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="evaluacion">Evaluación de los Aprendizajes</label>
+                        <select id="evaluacion" name="evaluacion" required>
+                            <option value="">Evaluar</option>
+                            <option value="destacado">Destacado</option>
+                            <option value="logrado">Logrado</option>
+                            <option value="proceso">En Proceso</option>
+                            <option value="inicio">En Inicio</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="climaAula">Clima en el Aula</label>
+                        <select id="climaAula" name="climaAula" required>
+                            <option value="">Evaluar</option>
+                            <option value="destacado">Destacado</option>
+                            <option value="logrado">Logrado</option>
+                            <option value="proceso">En Proceso</option>
+                            <option value="inicio">En Inicio</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="observaciones">Observaciones y Sugerencias</label>
+                        <textarea id="observaciones" name="observaciones" rows="5" placeholder="Escribe aquí tus observaciones y recomendaciones..."></textarea>
+                    </div>
+                </fieldset>
+
+                <button type="submit" class="cta-btn"><i class="fas fa-save"></i> Guardar Monitoreo</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-info">
+                <h3>Contacto</h3>
+                <p>Dirección: Av. El Sol S/N, San Juan de Lurigancho</p>
+                <p>Teléfono: (01) 362-0200</p>
+                <p>Email: agebre@ugel05.gob.pe</p>
+            </div>
+            <div class="footer-social">
+                <h3>Síguenos</h3>
+                <a href="#">Facebook</a> | <a href="#">Twitter</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 AGEBRE UGEL 05. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script> <script>
+        // Aquí puedes agregar validaciones de formulario con JavaScript
+        document.getElementById('monitoreoForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evita que el formulario se envíe realmente por ahora
+            alert('Formulario enviado (simulado)!');
+            // Aquí iría la lógica para enviar los datos al backend (AJAX/Fetch)
+        });
+    </script>
+</body>
+</html>

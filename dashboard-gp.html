@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Dashboard - AGEBRE UGEL 05</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="IMÁGENES/lapiz.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>AGEBRE</h1>
+            <p>UGEL 05</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="repositorio.html">Repositorio</a></li>
+                <li><a href="#">Contacto</a></li>
+                <li><a href="moped.html" class="active">Mi MOPED</a></li>
+            </ul>
+        </nav>
+        <a href="login.html" class="login-btn">Cerrar Sesión</a> 
+    </header>
+
+    <main class="dashboard-page">
+        <section class="dashboard-container">
+            <h2 class="section-title">Bienvenido, [Nombre del Especialista]</h2>
+            <p class="dashboard-intro">Aquí puedes revisar tu progreso y acceder a tus herramientas de monitoreo.</p>
+
+            <div class="dashboard-actions">
+                <a href="formulario-gp.html" class="cta-btn"><i class="fas fa-plus-circle"></i> Registrar Nuevo Monitoreo</a>
+                <a href="#" class="cta-btn secondary-btn"><i class="fas fa-file-export"></i> Exportar Mis Monitoreos</a>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <i class="fas fa-chart-line icon-stat"></i>
+                    <h3>Monitoreos Realizados</h3>
+                    <p class="stat-number">45</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-calendar-check icon-stat"></i>
+                    <h3>Monitoreos Este Mes</h3>
+                    <p class="stat-number">8</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-graduation-cap icon-stat"></i>
+                    <h3>Docentes Monitoreados</h3>
+                    <p class="stat-number">32</p>
+                </div>
+            </div>
+
+            <div class="chart-grid">
+                <div class="chart-card">
+                    <h3>Evaluación de Sesiones</h3>
+                    <canvas id="sesionesChart"></canvas>
+                </div>
+                <div class="chart-card">
+                    <h3>Monitoreos por Nivel</h3>
+                    <canvas id="nivelesChart"></canvas>
+                </div>
+            </div>
+
+            <div class="recent-monitoreos">
+                <h3><i class="fas fa-list-alt"></i> Mis Últimos Monitoreos</h3>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Fecha</th>
+                                <th>II.EE.</th>
+                                <th>Docente</th>
+                                <th>Nivel</th>
+                                <th>Estado General</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2024-10-26</td>
+                                <td>IE 3056 "La Ensenada"</td>
+                                <td>Maria Quispe</td>
+                                <td>Primaria</td>
+                                <td><span class="status-logrado">Logrado</span></td>
+                                <td><a href="#" class="action-link view-btn"><i class="fas fa-eye"></i></a></td>
+                            </tr>
+                            <tr>
+                                <td>2024-10-20</td>
+                                <td>IE 123 "Los Rosales"</td>
+                                <td>Juan Pérez</td>
+                                <td>Secundaria</td>
+                                <td><span class="status-proceso">En Proceso</span></td>
+                                <td><a href="#" class="action-link view-btn"><i class="fas fa-eye"></i></a></td>
+                            </tr>
+                            <tr>
+                                <td>2024-10-15</td>
+                                <td>IE 456 "Nuevo Horizonte"</td>
+                                <td>Ana Gómez</td>
+                                <td>Inicial</td>
+                                <td><span class="status-destacado">Destacado</span></td>
+                                <td><a href="#" class="action-link view-btn"><i class="fas fa-eye"></i></a></td>
+                            </tr>
+                            </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-info">
+                <h3>Contacto</h3>
+                <p>Dirección: Av. El Sol S/N, San Juan de Lurigancho</p>
+                <p>Teléfono: (01) 362-0200</p>
+                <p>Email: agebre@ugel05.gob.pe</p>
+            </div>
+            <div class="footer-social">
+                <h3>Síguenos</h3>
+                <a href="#">Facebook</a> | <a href="#">Twitter</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 AGEBRE UGEL 05. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // --- SCRIPT PARA LOS GRÁFICOS DE CHART.JS ---
+        // Los datos aquí son de ejemplo, en el backend se generarían dinámicamente
+
+        // Gráfico de Evaluación de Sesiones
+        const sesionesCtx = document.getElementById('sesionesChart').getContext('2d');
+        const sesionesChart = new Chart(sesionesCtx, {
+            type: 'pie', // O 'bar', 'doughnut'
+            data: {
+                labels: ['Destacado', 'Logrado', 'En Proceso', 'En Inicio'],
+                datasets: [{
+                    label: 'Evaluación de Sesiones',
+                    data: [10, 25, 8, 2], // Datos de ejemplo
+                    backgroundColor: [
+                        'rgba(60, 179, 113, 0.7)', // Verde medio
+                        'rgba(54, 162, 235, 0.7)', // Azul
+                        'rgba(255, 206, 86, 0.7)', // Amarillo
+                        'rgba(255, 99, 132, 0.7)'  // Rojo
+                    ],
+                    borderColor: [
+                        'rgba(60, 179, 113, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(255, 99, 132, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                    },
+                    title: {
+                        display: false, // El título ya está en el HTML
+                    }
+                }
+            }
+        });
+
+        // Gráfico de Monitoreos por Nivel Educativo
+        const nivelesCtx = document.getElementById('nivelesChart').getContext('2d');
+        const nivelesChart = new Chart(nivelesCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Inicial', 'Primaria', 'Secundaria', 'EBR'],
+                datasets: [{
+                    label: 'Monitoreos',
+                    data: [10, 18, 12, 5], // Datos de ejemplo
+                    backgroundColor: [
+                        'rgba(139, 0, 0, 0.7)', // var(--primary-color)
+                        'rgba(165, 42, 42, 0.7)', // var(--secondary-color)
+                        'rgba(200, 70, 70, 0.7)',
+                        'rgba(230, 100, 100, 0.7)'
+                    ],
+                    borderColor: [
+                        'rgba(139, 0, 0, 1)',
+                        'rgba(165, 42, 42, 1)',
+                        'rgba(200, 70, 70, 1)',
+                        'rgba(230, 100, 100, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: false,
+                    },
+                    title: {
+                        display: false,
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Script para el header sticky (si no lo tienes ya en script.js)
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) { // Si el scroll es mayor a 50px
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>

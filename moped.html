@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOPED - AGEBRE UGEL 05</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="IMÁGENES/lapiz.png">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <h1>AGEBRE</h1>
+            <p>UGEL 05</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="repositorio.html">Repositorio</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </nav>
+        <a href="dashboard-especialista.html" class="login-btn">Mi Panel</a>
+    </header>
+
+    <main>
+        <section class="moped-section">
+            <div class="moped-container">
+                <h2 class="section-title">Sistema de Monitoreo Pedagógico (MOPED)</h2>
+                <p class="moped-description">Selecciona el tipo de monitoreo que deseas realizar.</p>
+                
+                <div class="moped-grid">
+                    
+                    <div class="moped-item">
+                        <button class="moped-btn gestion moped-trigger">
+                            <span>Gestión Pedagógica</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="moped-dropdown">
+                            <a href="formulario-gp.html">1. Llenar el formulario de registro</a>
+                            <a href="dashboard-gp.html">2. Dashboard personal del especialista</a>
+                        </div>
+                    </div>
+
+                    <div class="moped-item">
+                        <button class="moped-btn planificacion moped-trigger">
+                            <span>Planificación Curricular</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="moped-dropdown">
+                            <a href="formulario-pc.html">1. Llenar el formulario de registro</a>
+                            <a href="dashboard-pc.html">2. Dashboard personal del especialista</a>
+                        </div>
+                    </div>
+
+                    <div class="moped-item">
+                        <button class="moped-btn desempeno moped-trigger">
+                            <span>Desempeño Docente</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="moped-dropdown">
+                            <a href="formulario-dd.html">1. Llenar el formulario de registro</a>
+                            <a href="dashboard-dd.html">2. Dashboard personal del especialista</a>
+                        </div>
+                    </div>
+
+                </div>
+                </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-info">
+                <h3>Contacto</h3>
+                <p>Dirección: Av. El Sol S/N, San Juan de Lurigancho</p>
+                <p>Teléfono: (01) 362-0200</p>
+                <p>Email: agebre@ugel05.gob.pe</p>
+            </div>
+            <div class="footer-social">
+                <h3>Síguenos</h3>
+                <a href="#">Facebook</a> | <a href="#">Twitter</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 AGEBRE UGEL 05. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    
+    <script src="script-moped.js"></script>
+
+</body>
+</html>
